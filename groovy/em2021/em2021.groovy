@@ -199,13 +199,13 @@ validate gruppeF
 
 def achtelfinale = service.findGroupType('Achtelfinale');
 validate achtelfinale
-/*
 def viertelfinale = service.findGroupType('Viertelfinale');
 validate viertelfinale
 def halbfinale = service.findGroupType('Halbfinale');
 validate halbfinale
 def finale = service.findGroupType('Finale');
 validate finale
+/*
 def platz3 = service.findGroupType('Spiel um Platz 3');
 validate platz3
 */
@@ -289,7 +289,7 @@ def ungarn = service.findTeam('Ungarn').get()
 validate ungarn
 
 
-// TODO #addGroup liefert nicht die Group zurück, sonder die Saison.
+// TODO #addGroup liefert nicht die Group zurück, sondern die Saison.
 /*
 def em2021_gruppe_A = service.addGroup em2021, gruppeA
 println "Gruppe A: $em2021_gruppe_A.id"
@@ -311,7 +311,16 @@ println "Gruppe F: $em2021_gruppe_F.id"
 */
 
 def em2021_gruppe_achtelfinale = service.addGroup em2021, achtelfinale
-println "Gruppe F: $em2021_gruppe_achtelfinale.id"
+println "Achtelfinale: $em2021_gruppe_achtelfinale.id"
+
+def em2021_gruppe_viertelfinale = service.addGroup em2021, viertelfinale
+println "Viertelfinale: $em2021_gruppe_viertelfinale.id"
+
+def em2021_gruppe_halbfinale = service.addGroup em2021, halbfinale
+println "Viertelfinale: $em2021_gruppe_halbfinale.id"
+
+def em2021_gruppe_finale = service.addGroup em2021, finale
+println "Viertelfinale: $em2021_gruppe_finale.id"
 
 /*
 em2021_gruppe_A = service.addTeams(em2021, gruppeA, [italien, schweiz, tuerkei, wales])
@@ -333,7 +342,7 @@ em2021_gruppe_F = service.addTeams(em2021, gruppeF, [deutschland, frankreich, po
 printTeams(em2021_gruppe_F)
 */ 
 
-/*
+// Vorrunde
 def round_2021_06_11 = service.findRound(em2021, 0)
 if (round_2021_06_11.isPresent()) {
     round_2021_06_11 = round_2021_06_11.get()
@@ -341,7 +350,6 @@ if (round_2021_06_11.isPresent()) {
     round_2021_06_11 = service.addRound(em2021, '2021-06-11 21:00:00', gruppeA)
 }
 println "Runde $round_2021_06_11.dateTime"
-
 
 def round_2021_06_16 = service.findRound(em2021, 1)
 if (round_2021_06_16.isPresent()) {
@@ -351,7 +359,6 @@ if (round_2021_06_16.isPresent()) {
 }
 println "Runde $round_2021_06_16.dateTime"
 
-
 def round_2021_06_20 = service.findRound(em2021, 3)
 if (round_2021_06_20.isPresent()) {
     round_2021_06_20 = round_2021_06_20.get()
@@ -359,8 +366,9 @@ if (round_2021_06_20.isPresent()) {
     round_2021_06_20 = service.addRound(em2021, '2021-06-20 18:00:00', gruppeA)
 }
 println "Runde $round_2021_06_20.dateTime"
-*/
 
+
+// Achtelfinale
 def round_2021_06_26 = service.findRound(em2021, 4)
 if (round_2021_06_26.isPresent()) {
     round_2021_06_26 = round_2021_06_26.get()
@@ -369,6 +377,15 @@ if (round_2021_06_26.isPresent()) {
 }
 println "Runde $round_2021_06_26.dateTime"
 
+
+// Viertelfinale
+def round_2021_07_02 = service.findRound(em2021, 5)
+if (round_2021_07_02.isPresent()) {
+    round_2021_07_02 = round_2021_07_02.get()
+} else {
+    round_2021_07_02 = service.addRound(em2021, '2021-07-02 18:00:00', viertelfinale)
+}
+println "Runde $round_2021_07_02.dateTime"
 
 // 1. Spieltag
 /*
