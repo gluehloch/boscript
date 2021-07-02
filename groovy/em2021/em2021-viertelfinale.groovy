@@ -292,9 +292,9 @@ def ungarn = service.findTeam('Ungarn').get()
 validate ungarn
 
 
-// TODO #addGroup liefert nicht die Group zurück, sondern die Saison.
+// TODO #addGroup liefert nicht die Group zurück, sondern die Saison!!!
 def em2021_gruppe_viertelfinale = service.addGroup em2021, viertelfinale
-println "EM 2021 - Viertelfinale: $em2021_gruppe_viertelfinale.id"
+println "EM 2021 - Viertelfinale: $em2021_gruppe_viertelfinale $em2021_gruppe_viertelfinale.class.name"
 
 
 // Vorrunde
