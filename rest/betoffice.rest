@@ -1,6 +1,58 @@
+###
+
 GET http://localhost:8080/betoffice-jweb/bo/office/ranking/roundonly/917
 
-#####
+###
 
 GET http://localhost:8080/betoffice-jweb/bo/office/ranking/season/31
 
+###
+
+GET http://localhost:8080/betoffice-jweb/bo/office/ping
+Authorization: Bearer TestAuthorization
+
+### Login
+
+POST http://localhost:8080/betoffice-jweb/bo/office/login
+Content-Type: application/json
+
+{
+    "nickname": "Frosch",
+    "password": "awi"
+}
+
+### 
+# Beispiel:
+/* Ohne Spring-Security-Filter
+HTTP/1.1 200 
+Vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 05 Jul 2021 12:38:42 GMT
+Connection: close
+
+{
+  "dateTime": "2021-07-05T14:38+0200",
+  "dateTimeZone": "Europe/Berlin"
+}
+*/
+
+/* Mit Spring-Security-Filter:
+HTTP/1.1 200 
+Vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+X-Frame-Options: DENY
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 05 Jul 2021 12:35:48 GMT
+Connection: close
+
+{
+  "dateTime": "2021-07-05T14:35+0200",
+  "dateTimeZone": "Europe/Berlin"
+}
+*/
