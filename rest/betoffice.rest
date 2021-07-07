@@ -21,6 +21,17 @@ Content-Type: application/json
     "password": "awi"
 }
 
+### Logout
+
+POST http://localhost:8080/betoffice-jweb/bo/office/logout
+Content-Type: application/json
+Authorization: Bearer 075ED4256547D0EC908E2A6806CAC36F
+
+{
+    "nickname": "Frosch",
+    "token": "075ED4256547D0EC908E2A6806CAC36F"
+}
+
 ### 
 # Beispiel:
 /* Ohne Spring-Security-Filter
