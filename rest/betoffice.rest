@@ -25,7 +25,7 @@ Content-Type: application/json
 
 POST http://localhost:8080/betoffice-jweb/bo/office/logout
 Content-Type: application/json
-Authorization: Bearer ED22DB73592774A5A9CD02ACBE3302AA
+Authorization: Bearer E6AE13D88A936DB419DEAFFED8A08A98
 
 {
     "nickname": "Frosch",
