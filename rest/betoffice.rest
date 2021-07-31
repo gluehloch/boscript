@@ -19,7 +19,6 @@ http://localhost:8080/betoffice-jweb/bo/office/ranking/season/30
 http://127.0.0.1:8080/betoffice-jweb/bo/office/season/roundtable/695/group/62
 ###
 https://tippdiekistebier.de/betoffice-jweb/
-
 ### Login
 
 POST http://localhost:8080/betoffice-jweb/bo/office/login
@@ -57,3 +56,8 @@ GET http://tippdiekistebier.de:8080/betoffice-jweb/bo/office/ranking/roundonly/9
 
 GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ranking/roundonly/917
 
+### OpenLigaDb
+https://www.openligadb.de/api/getmatchdata/bl1/2020/1
+###
+https://www.openligadb.de/api/getmatchdata/bl1
+###
