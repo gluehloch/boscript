@@ -81,7 +81,7 @@ validate gladbach
 def dortmund = service.findTeam('Borussia Dortmund').get()
 validate dortmund
 
-def frankfurt = service.findTeam('Eintrach Frankfurt').get()
+def frankfurt = service.findTeam('Eintracht Frankfurt').get()
 validate frankfurt
 
 def augsburg = service.findTeam('FC Augsburg').get()
@@ -102,149 +102,44 @@ validate fuerth
 def stuttgart = service.findTeam('VfB Stuttgart').get()
 validate stuttgart
 
-def bochum = service.findTeam('VfB Bochum').get()
+def bochum = service.findTeam('VfL Bochum').get()
 validate bochum
 
 def wolfsburg = service.findTeam('VfL Wolfsburg').get()
 validate wolfsburg
 
-
-def bundesliga = master.findGroupType('1. Bundesliga');
-validate bundesliga
-
-// Gruppe A
-def italien = service.findTeam('Italien').get()
-validate italien
-
-def schweiz = service.findTeam('Schweiz').get();
-validate schweiz
-
-def tuerkei = service.findTeam("Türkei").get()
-validate tuerkei
-
-def wales = service.findTeam('Wales').get();
-validate wales
-
-// Gruppe B
-def belgien = service.findTeam('Belgien').get();
-validate belgien
-
-def daenemark = service.findTeam('Dänemark').get();
-validate daenemark
-
-def finnland = service.findTeam('Finnland').get();
-validate finnland
-
-def russland = service.findTeam('Russland').get();
-validate russland
-
-// Gruppe C
-def niederlande = service.findTeam('Niederlande').get();
-validate niederlande
-
-def nordmazedonien = service.findTeam('Nordmazedonien').get();
-validate nordmazedonien
-
-def oesterreich = service.findTeam('Österreich').get()
-validate oesterreich
-
-def ukraine = service.findTeam('Ukraine').get();
-validate ukraine
-
-// Gruppe D
-def england = service.findTeam('England').get();
-validate england
-
-def kroatien = service.findTeam('Kroatien').get();
-validate kroatien
-
-def schottland = service.findTeam('Schottland').get();
-validate schottland
-
-def tschechien = service.findTeam('Tschechien').get();
-validate tschechien
-
-// Gruppe E
-def polen = service.findTeam('Polen').get();
-validate polen
-
-def schweden = service.findTeam('Schweden').get();
-validate schweden
-
-def slowakei = service.findTeam('Slowakei').get();
-validate slowakei
-
-def spanien = service.findTeam('Spanien').get();
-validate spanien
-
-// Gruppe F
-def deutschland = service.findTeam('Deutschland').get();
-validate deutschland
-
-def frankreich = service.findTeam('Frankreich').get();
-validate frankreich
-
-def portugal = service.findTeam('Portugal').get();
-validate portugal
-
-def ungarn = service.findTeam('Ungarn').get()
-validate ungarn
+def erste_bundesliga_groupe_type = service.findGroupType('1. Liga');
+validate erste_bundesliga_groupe_type
 
 
-// TODO #addGroup liefert nicht die Group zurück, sondern die Saison.
-/*
-def em2021_gruppe_A = service.addGroup em2021, gruppeA
-println "Gruppe A: $em2021_gruppe_A.id"
+def bundesliga2021group = service.addGroup bundesliga, erste_bundesliga_groupe_type
+bundesliga2021group = service.findGroup(bundesliga, erste_bundesliga_groupe_type)
+println "Gruppe Bundesliga 2021/2022: $bundesliga2021group"
 
-def em2021_gruppe_B = service.addGroup em2021, gruppeB
-println "Gruppe B: $em2021_gruppe_B.id"
+bundesliga2020group = service.addTeams(bundesliga, erste_bundesliga_groupe_type, [
+    unionBerlin,
+    mainz,
+    hoffenheim,
+    bielefeld,
+    leverkusen,
+    bayernMuenchen,
+    gladbach,
+    dortmund,
+    frankfurt,
+    augsburg,
+    hertha,
+    leipzig,
+    freiburg,
+    fuerth,
+    stuttgart,
+    bochum,
+    wolfsburg
+])
 
-def em2021_gruppe_C = service.addGroup em2021, gruppeC
-println "Gruppe C: $em2021_gruppe_C.id"
 
-def em2021_gruppe_D = service.addGroup em2021, gruppeD
-println "Gruppe D: $em2021_gruppe_D.id"
-
-def em2021_gruppe_E = service.addGroup em2021, gruppeE
-println "Gruppe E: $em2021_gruppe_E.id"
-
-def em2021_gruppe_F = service.addGroup em2021, gruppeF
-println "Gruppe F: $em2021_gruppe_F.id"
-*/
-
-def em2021_gruppe_achtelfinale = service.addGroup em2021, achtelfinale
-println "Achtelfinale: $em2021_gruppe_achtelfinale.id"
-
-def em2021_gruppe_viertelfinale = service.addGroup em2021, viertelfinale
-println "Viertelfinale: $em2021_gruppe_viertelfinale.id"
-
-def em2021_gruppe_halbfinale = service.addGroup em2021, halbfinale
-println "Halbfinale: $em2021_gruppe_halbfinale.id"
-
-def em2021_gruppe_finale = service.addGroup em2021, finale
-println "Finale: $em2021_gruppe_finale.id"
-
-/*
-em2021_gruppe_A = service.addTeams(em2021, gruppeA, [italien, schweiz, tuerkei, wales])
-printTeams(em2021_gruppe_A)
-
-em2021_gruppe_B = service.addTeams(em2021, gruppeB, [belgien, daenemark, finnland, russland]);
-printTeams(em2021_gruppe_B)
-
-em2021_gruppe_C = service.addTeams(em2021, gruppeC, [niederlande, nordmazedonien, oesterreich, ukraine])
-printTeams(em2021_gruppe_C)
-
-em2021_gruppe_D = service.addTeams(em2021, gruppeD, [england, kroatien, schottland, tschechien])
-printTeams(em2021_gruppe_D)
-
-em2021_gruppe_E = service.addTeams(em2021, gruppeE, [polen, schweden, slowakei, spanien])
-printTeams(em2021_gruppe_E)
-
-em2021_gruppe_F = service.addTeams(em2021, gruppeF, [deutschland, frankreich, portugal, ungarn])
-printTeams(em2021_gruppe_F)
-*/ 
 
 // Vorrunde
+/*
 def round_2021_06_11 = service.findRound(em2021, 0)
 if (round_2021_06_11.isPresent()) {
     round_2021_06_11 = round_2021_06_11.get()
@@ -278,6 +173,7 @@ if (round_2021_06_26.isPresent()) {
     round_2021_06_26 = service.addRound(em2021, '2021-06-26 18:00:00', achtelfinale)
 }
 println "Runde $round_2021_06_26.dateTime"
+*/
 
 // 1. Spieltag
 /*
@@ -338,47 +234,3 @@ service.addMatch(round_2021_06_20, '2021-06-23 18:00:00', em2021_gruppe_E, schwe
 service.addMatch(round_2021_06_20, '2021-06-23 21:00:00', em2021_gruppe_F, deutschland, ungarn)
 service.addMatch(round_2021_06_20, '2021-06-23 21:00:00', em2021_gruppe_F, portugal, frankreich)
 */
-
-def em2021_achtelfinale = service.addTeams(em2021, achtelfinale, [
-    wales, daenemark, italien, oesterreich, niederlande, tschechien, belgien, portugal,
-    kroatien, spanien, frankreich, schweiz, deutschland, england, schweden, ukraine
-])
-printTeams(em2021_achtelfinale)
-
-// 4. Spieltag Achtelfinale
-/*
-service.addMatch(round_2021_06_26, '2021-06-26 18:00:00', em2021_gruppe_achtelfinale, wales, daenemark)
-service.addMatch(round_2021_06_26, '2021-06-26 21:00:00', em2021_gruppe_achtelfinale, italien, oesterreich)
-
-service.addMatch(round_2021_06_26, '2021-06-27 18:00:00', em2021_gruppe_achtelfinale, niederlande, tschechien)
-service.addMatch(round_2021_06_26, '2021-06-27 21:00:00', em2021_gruppe_achtelfinale, belgien, portugal)
-
-service.addMatch(round_2021_06_26, '2021-06-28 18:00:00', em2021_gruppe_achtelfinale, kroatien, spanien)
-service.addMatch(round_2021_06_26, '2021-06-28 21:00:00', em2021_gruppe_achtelfinale, frankreich, schweiz)
-
-service.addMatch(round_2021_06_26, '2021-06-29 18:00:00', em2021_gruppe_achtelfinale, england, deutschland)
-service.addMatch(round_2021_06_26, '2021-06-29 21:00:00', em2021_gruppe_achtelfinale, schweden, ukraine)
-*/
-
-// Viertelfinale
-def round_2021_07_02 = service.findRound(em2021, 4)
-if (round_2021_07_02.isPresent()) {
-    round_2021_07_02 = round_2021_07_02.get()
-} else {
-    round_2021_07_02 = service.addRound(em2021, '2021-07-02 18:00:00', viertelfinale)
-}
-println "Runde $round_2021_07_02.dateTime"
-
-
-def em2021_viertelfinale = service.addTeams(em2021, viertelfinale, [
-    daenemark, italien, tschechien, belgien, spanien, schweiz, ukraine, england
-])
-println em2021_viertelfinale.class
-printTeams(em2021_viertelfinale)
-
-// 5. Spieltag / Achtelfinale
-service.addMatch(round_2021_07_02, '2021-07-02 18:00:00', em2021_gruppe_viertelfinale, schweiz, spanien)
-service.addMatch(round_2021_07_02, '2021-07-02 21:00:00', em2021_gruppe_viertelfinale, belgien, italien)
-
-service.addMatch(round_2021_07_02, '2021-07-03 18:00:00', em2021_gruppe_viertelfinale, tschechien, daenemark)
-service.addMatch(round_2021_07_02, '2021-07-03 21:00:00', em2021_gruppe_viertelfinale, ukraine, england)
