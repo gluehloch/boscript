@@ -54,77 +54,63 @@ if (seasonOptional.isPresent()) {
 
 println bundesliga.name + " - " + bundesliga.year
 
-def koeln = service.findTeam('1.FC Köln')
-def unionBerlin = service.findTeam('Union Berlin')
-def mainz = service.findTeam('FSV Mainz 05')	
-def hoffenheom = service.findTeam('1899 Hoffenheim')
-def bielefeld = service.findTeam('Arminia Bielefeld')
-def leverkusen = service.findTeam('Bayer 04 Leverkusen')
-def bayernMuenchen = service.findTeam('FC Bayern München')
+def koeln = service.findTeam('1.FC Köln').get()
+validate koeln
 
-Bor. Mönchengladbach
-Borussia Dortmund
-Eintracht Frankfurt
-FC Augsburg
-Hertha BSC
-RB Leipzig
-SC Freiburg
-SpVgg Greuther Fürth
-VfB Stuttgart
-VfL Bochum
-VfL Wolfsburg
+def unionBerlin = service.findTeam('Union Berlin').get()
+validate unionBerlin
+
+def mainz = service.findTeam('FSV Mainz 05').get()
+validate mainz
+
+def hoffenheim = service.findTeam('1899 Hoffenheim').get()
+validate hoffenheim
+
+def bielefeld = service.findTeam('Arminia Bielefeld').get()
+validate bielefeld
+
+def leverkusen = service.findTeam('Bayer 04 Leverkusen').get()
+validate leverkusen
+
+def bayernMuenchen = service.findTeam('FC Bayern München').get()
+validate bayernMuenchen
+
+def gladbach = service.findTeam('Borussia MGladbach').get()
+validate gladbach
+
+def dortmund = service.findTeam('Borussia Dortmund').get()
+validate dortmund
+
+def frankfurt = service.findTeam('Eintrach Frankfurt').get()
+validate frankfurt
+
+def augsburg = service.findTeam('FC Augsburg').get()
+validate augsburg
+
+def hertha = service.findTeam('Hertha BSC Berlin').get()
+validate hertha
+
+def leipzig = service.findTeam('RB Leipzig').get()
+validate leipzig
+
+def freiburg = service.findTeam('SC Freiburg').get()
+validate freiburg
+
+def fuerth = service.findTeam('SpVgg Greuther Fürth').get()
+validate fuerth
+
+def stuttgart = service.findTeam('VfB Stuttgart').get()
+validate stuttgart
+
+def bochum = service.findTeam('VfB Bochum').get()
+validate bochum
+
+def wolfsburg = service.findTeam('VfL Wolfsburg').get()
+validate wolfsburg
 
 
-newTeam = service.findTeam('Nordmazedonien')
-if (!newTeam.present) {
-    def team = new Team()
-    team.name = 'Nordmazedonien'
-    team.longName = 'Nordmazedonien'
-    team.shortName = 'Nordmazedonien'
-    team.xshortName = 'MKD'
-    team.logo = 'nordmazedonien.gif'
-    team.teamType = TeamType.FIFA
-    service.updateTeam(team)
-}
-
-newTeam = service.findTeam('Schottland')
-if (!newTeam.present) {
-    def team = new Team()
-    team.name = 'Schottland'
-    team.longName = 'Schottland'
-    team.shortName = 'Schottland'
-    team.xshortName = 'SCO'
-    team.logo = 'schottland.gif'
-    team.teamType = TeamType.FIFA
-    service.updateTeam(team)
-}
-
- // def bundesliga = master.findGroupType('1. Bundesliga');
-def gruppeA = service.findGroupType('Gruppe A');
-validate gruppeA
-def gruppeB = service.findGroupType('Gruppe B');
-validate gruppeB
-def gruppeC = service.findGroupType('Gruppe C');
-validate gruppeC
-def gruppeD = service.findGroupType('Gruppe D');
-validate gruppeD
-def gruppeE = service.findGroupType('Gruppe E');
-validate gruppeE
-def gruppeF = service.findGroupType('Gruppe F');
-validate gruppeF
-
-def achtelfinale = service.findGroupType('Achtelfinale');
-validate achtelfinale
-def viertelfinale = service.findGroupType('Viertelfinale');
-validate viertelfinale
-def halbfinale = service.findGroupType('Halbfinale');
-validate halbfinale
-def finale = service.findGroupType('Finale');
-validate finale
-/*
-def platz3 = service.findGroupType('Spiel um Platz 3');
-validate platz3
-*/
+def bundesliga = master.findGroupType('1. Bundesliga');
+validate bundesliga
 
 // Gruppe A
 def italien = service.findTeam('Italien').get()
