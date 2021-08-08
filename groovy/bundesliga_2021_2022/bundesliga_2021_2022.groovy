@@ -137,48 +137,19 @@ bundesliga2020group = service.addTeams(bundesliga, erste_bundesliga_groupe_type,
 ])
 
 
-
-// Vorrunde
-/*
-def round_2021_06_11 = service.findRound(em2021, 0)
-if (round_2021_06_11.isPresent()) {
-    round_2021_06_11 = round_2021_06_11.get()
+def bl_spieltag_2021_08_14 = service.findRound(bundesliga, 0)
+if (bl_spieltag_2021_08_14.isPresent()) {
+    bl_spieltag_2021_08_14 = bl_spieltag_2021_08_14.get()
 } else {
-    round_2021_06_11 = service.addRound(em2021, '2021-06-11 21:00:00', gruppeA)
+    bl_spieltag_2021_08_14 = service.addRound(bundesliga, '2021-08-14 15:30:00', erste_bundesliga_groupe_type)
 }
-println "Runde $round_2021_06_11.dateTime"
-
-def round_2021_06_16 = service.findRound(em2021, 1)
-if (round_2021_06_16.isPresent()) {
-    round_2021_06_16 = round_2021_06_16.get()
-} else {
-    round_2021_06_16 = service.addRound(em2021, '2021-06-16 14:00:00', gruppeA)
-}
-println "Runde $round_2021_06_16.dateTime"
-
-def round_2021_06_20 = service.findRound(em2021, 2)
-if (round_2021_06_20.isPresent()) {
-    round_2021_06_20 = round_2021_06_20.get()
-} else {
-    round_2021_06_20 = service.addRound(em2021, '2021-06-20 18:00:00', gruppeA)
-}
-println "Runde $round_2021_06_20.dateTime"
-
-
-// Achtelfinale
-def round_2021_06_26 = service.findRound(em2021, 3)
-if (round_2021_06_26.isPresent()) {
-    round_2021_06_26 = round_2021_06_26.get()
-} else {
-    round_2021_06_26 = service.addRound(em2021, '2021-06-26 18:00:00', achtelfinale)
-}
-println "Runde $round_2021_06_26.dateTime"
-*/
+println "Runde $bl_spieltag_2021_08_14.dateTime"
 
 // 1. Spieltag
-/*
-service.addMatch(round_2021_06_11, '2021-06-11 21:00:00', em2021_gruppe_A, tuerkei, italien)
 
+service.addMatch(bl_spieltag_2021_08_14, '2021-08-13 20:30:00', bundesliga2020group, gladbach, bayernMuenchen)
+
+/*
 service.addMatch(round_2021_06_11, '2021-06-12 15:00:00', em2021_gruppe_A, wales, schweiz)
 service.addMatch(round_2021_06_11, '2021-06-12 18:00:00', em2021_gruppe_B, daenemark, finnland)
 service.addMatch(round_2021_06_11, '2021-06-12 21:00:00', em2021_gruppe_B, belgien, russland)
@@ -195,42 +166,3 @@ service.addMatch(round_2021_06_11, '2021-06-15 18:00:00', em2021_gruppe_F, ungar
 service.addMatch(round_2021_06_11, '2021-06-15 21:00:00', em2021_gruppe_F, frankreich, deutschland)
 */
 
-// 2. Spieltag
-/*
-service.addMatch(round_2021_06_16, '2021-06-16 15:00:00', em2021_gruppe_B, finnland, russland)
-service.addMatch(round_2021_06_16, '2021-06-16 18:00:00', em2021_gruppe_A, tuerkei, wales)
-service.addMatch(round_2021_06_16, '2021-06-16 21:00:00', em2021_gruppe_A, italien, schweiz)
-
-service.addMatch(round_2021_06_16, '2021-06-17 15:00:00', em2021_gruppe_C, ukraine, nordmazedonien)
-service.addMatch(round_2021_06_16, '2021-06-17 18:00:00', em2021_gruppe_B, daenemark, belgien)
-// TODO Fehler: service.addMatch(round_2021_06_16, '2021-06-17 21:00:00', em2021_gruppe_C, italien, schweiz)
-// TODO Korrektur: /Die Mannschafts-IDs austauschen/
-service.addMatch(round_2021_06_16, '2021-06-17 21:00:00', em2021_gruppe_C, niederlande, oesterreich)
-
-service.addMatch(round_2021_06_16, '2021-06-18 15:00:00', em2021_gruppe_E, schweden, slowakei)
-service.addMatch(round_2021_06_16, '2021-06-18 18:00:00', em2021_gruppe_D, kroatien, tschechien)
-service.addMatch(round_2021_06_16, '2021-06-18 21:00:00', em2021_gruppe_D, england, schottland)
-
-service.addMatch(round_2021_06_16, '2021-06-19 15:00:00', em2021_gruppe_F, ungarn, frankreich)
-service.addMatch(round_2021_06_16, '2021-06-19 18:00:00', em2021_gruppe_F, portugal, deutschland)
-service.addMatch(round_2021_06_16, '2021-06-19 21:00:00', em2021_gruppe_E, spanien, polen)
-*/
-
-// 3. Spieltag
-/*
-service.addMatch(round_2021_06_20, '2021-06-20 18:00:00', em2021_gruppe_A, italien, wales)
-service.addMatch(round_2021_06_20, '2021-06-20 18:00:00', em2021_gruppe_A, schweiz, tuerkei)
-
-service.addMatch(round_2021_06_20, '2021-06-21 18:00:00', em2021_gruppe_C, nordmazedonien, niederlande)
-service.addMatch(round_2021_06_20, '2021-06-21 18:00:00', em2021_gruppe_C, ukraine, oesterreich)
-service.addMatch(round_2021_06_20, '2021-06-21 21:00:00', em2021_gruppe_B, finnland, belgien)
-service.addMatch(round_2021_06_20, '2021-06-21 21:00:00', em2021_gruppe_B, russland, daenemark)
-
-service.addMatch(round_2021_06_20, '2021-06-22 21:00:00', em2021_gruppe_D, tschechien, england)
-service.addMatch(round_2021_06_20, '2021-06-22 21:00:00', em2021_gruppe_D, kroatien, schottland)
-
-service.addMatch(round_2021_06_20, '2021-06-23 18:00:00', em2021_gruppe_E, slowakei, spanien)
-service.addMatch(round_2021_06_20, '2021-06-23 18:00:00', em2021_gruppe_E, schweden, polen)
-service.addMatch(round_2021_06_20, '2021-06-23 21:00:00', em2021_gruppe_F, deutschland, ungarn)
-service.addMatch(round_2021_06_20, '2021-06-23 21:00:00', em2021_gruppe_F, portugal, frankreich)
-*/
