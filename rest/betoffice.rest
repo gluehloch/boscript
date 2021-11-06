@@ -12,6 +12,7 @@ GET http://localhost:8080/betoffice-jweb/bo/office/ping
 Authorization: Bearer TestAuthorization
 
 ###
+<<<<<<< HEAD
 http://127.0.0.1:8080/betoffice-jweb/bo/office/ranking/season/25
 ###
 http://localhost:8080/betoffice-jweb/bo/office/ranking/season/30
@@ -19,6 +20,15 @@ http://localhost:8080/betoffice-jweb/bo/office/ranking/season/30
 http://127.0.0.1:8080/betoffice-jweb/bo/office/season/roundtable/695/group/62
 ###
 https://tippdiekistebier.de/betoffice-jweb/
+=======
+### Community management
+###
+GET http://localhost:8080/betoffice-jweb/bo/community-admin/communities?page=1&size=20
+Content-Type: application/json
+betofficeToken: test
+
+
+>>>>>>> 988e65d (Rest API: Finding all communities.)
 ### Login
 
 POST http://localhost:8080/betoffice-jweb/bo/office/login
