@@ -40,6 +40,10 @@ Authorization: Bearer E6AE13D88A936DB419DEAFFED8A08A98
     "token": "075ED4256547D0EC908E2A6806CAC36F"
 }
 
+### Community
+
+GET http://localhost:8080/betoffice-jweb/bo/community-admin/communities
+
 ### TIPPDIEKISTEBIER:DE
 
 GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ping

@@ -1,2 +1,8 @@
+# Script environment properties
 hibernate.properties
 
+# Build artefacts
+*.tar
+*.zip
+*.gz
+/lib
