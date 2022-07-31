@@ -4,6 +4,7 @@
 //   /cygdrive/c/Users/winkler/.groovy/grapes/de.winkler.betoffice/betoffice-storage/jars/betoffice-storage-2.6.0-SNAPSHOT.jar
 
 @GrabResolver(name='gluehloch', root='http://maven.gluehloch.de/repository')
+@GrabResolver(name='MavenCentral', root='http://maven.gluehloch.de/repository')
 @Grab(group='org.slf4j', module='slf4j-api', version='1.6.1')
 
 @Grab(group='org.apache.commons', module='commons-pool2', version='2.8.1')
