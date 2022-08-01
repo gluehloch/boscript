@@ -19,11 +19,8 @@ http://localhost:8080/betoffice-jweb/bo/office/ranking/season/30
 http://127.0.0.1:8080/betoffice-jweb/bo/office/season/roundtable/695/group/62
 ###
 https://tippdiekistebier.de/betoffice-jweb/
-<<<<<<< HEAD
 
 ###
-=======
->>>>>>> 688c960 (rest examples.)
 ### Community management
 ###
 
