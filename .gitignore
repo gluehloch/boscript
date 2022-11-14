@@ -5,4 +5,5 @@ hibernate.properties
 *.tar
 *.zip
 *.gz
+*.jar
 /lib

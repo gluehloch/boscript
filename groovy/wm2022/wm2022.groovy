@@ -3,26 +3,20 @@
 // cp ./target/betoffice-storage-2.6.0-SNAPSHOT.jar \
 //   /cygdrive/c/Users/winkler/.groovy/grapes/de.winkler.betoffice/betoffice-storage/jars/betoffice-storage-2.6.0-SNAPSHOT.jar
 
+@GrabResolver(name='gluehloch', root='http://maven.gluehloch.de/repository')
 @Grab(group='org.slf4j', module='slf4j-api', version='1.6.1')
 
-// Die naechsten 4 Imports kann man vielleicht mal in Frage stellen.
-@Grab(group='javax.activation', module='activation', version='1.1')
-@Grab(group='commons-logging', module='commons-logging', version='1.2')
-@Grab(group='dom4j', module='dom4j', version='1.6.1')
-@Grab(group='jaxen', module='jaxen', version='1.1')
+@Grab(group='org.apache.commons', module='commons-pool2', version='2.8.1')
+@Grab(group='org.apache.commons', module='commons-dbcp2', version='2.7.0')
+@Grab(group='org.mariadb.jdbc', module='mariadb-java-client', version='2.6.2')
 
-@Grab(group='commons-pool', module='commons-pool', version='1.5.4')
-@Grab(group='commons-dbcp', module='commons-dbcp', version='1.4')
-@Grab(group='mysql', module='mysql-connector-java', version='5.1.31')
-@Grab(group='xml-apis', module='xml-apis', version='1.0.b2')
-
-/// @Grab(group='de.winkler.betoffice', module='betoffice-storage', version='2.6.0-SNAPSHOT')
-@Grab(group='de.winkler.betoffice', module='betoffice-storage', version='2.6.0')
+//@Grab(group='de.winkler.betoffice', module='betoffice-storage', version='2.8.0-SNAP-2021-05-31')
+@Grab(group='de.winkler.betoffice', module='betoffice-storage', version='2.8.2')
 
 import org.springframework.context.support.ClassPathXmlApplicationContext
 
-import org.joda.time.*;
-import org.joda.time.format.*;
+import java.time.*;
+import java.time.format.*;
 
 import de.winkler.betoffice.storage.*
 import de.winkler.betoffice.storage.enums.*
@@ -43,9 +37,15 @@ class Service {
     }
 
     def toDate(dateTimeAsString) {
+        ZoneId zone = ZoneId.of("Europe/Berlin");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime.parse(dateTimeAsString, formatter).atZone(zone);
+
+        /*
         DateTimeFormatter formatter = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss")
         DateTime dateTime = formatter.parseDateTime(dateTimeAsString)
         return dateTime
+        */
     }
 
     def createSeason(season) {
@@ -81,7 +81,13 @@ class Service {
     }
 
     def findTeam(teamName) {
-        return masterService.findTeam(teamName)
+        def team = masterService.findTeam(teamName)
+        if (!team.isPresent()) {
+            println "team '${teamName}' not found"
+        } else {
+            println "Team '${team.get().getName()}' is there."
+        }
+        return team
     }
 
     def findTeams(season, groupType) {
@@ -113,7 +119,7 @@ def validate(object) {
     if (object == null) {
         throw new NullPointerException();
     } else {
-        println object
+        println "OK: " + object
     }
 }
 
@@ -126,20 +132,20 @@ def printTeams(group) {
 
 Service service = new Service();
 
-def wm2018
-def seasonOptional = service.seasonService.findSeasonByName('WM Russland', '2018')
+def wm2022
+def seasonOptional = service.seasonService.findSeasonByName('WM Katar', '2022')
 if (seasonOptional.isPresent()) {
-    wm2018 = seasonOptional.get()
+    wm2022 = seasonOptional.get()
 } else {
-    wm2018 = new Season();
-    wm2018.name = 'WM Russland'
-    wm2018.year = 2018
-    wm2018.mode = SeasonType.WC
-    wm2018.teamType = TeamType.FIFA
-    wm2018 = service.createSeason(wm2018);
+    wm2022 = new Season();
+    wm2022.name = 'WM Katar'
+    wm2022.year = 2022
+    wm2022.mode = SeasonType.WC
+    wm2022.teamType = TeamType.FIFA
+    wm2022 = service.createSeason(wm2022);
 }
 
-println wm2018.name + " - " + wm2018.year
+println wm2022.name + " - " + wm2022.year
 
  // def bundesliga = master.findGroupType('1. Bundesliga');
 def gruppeA = service.findGroupType('Gruppe A');
@@ -170,187 +176,195 @@ validate finale
 def platz3 = service.findGroupType('Spiel um Platz 3');
 validate platz3
 
-def oesterreich = service.findTeam('Österreich').get()
-println oesterreich
+// Gruppe A
 
-def aegypten = service.findTeam('Ägypten')
-if (!aegypten.present) {
+def katar = service.findTeam('Katar')
+if (!katar.present) {
     def team = new Team()
-    team.name = 'Ägypten'
-    team.longName = 'Ägypten'
-    team.shortName = 'Ägypten'
-    team.xshortName = 'AGP'
-    team.logo = 'aegypten.gif'
+    team.name = 'Katar'
+    team.longName = 'Katar'
+    team.shortName = 'Katar'
+    team.xshortName = 'KAT'
+    team.logo = 'katar.gif'
     team.teamType = TeamType.FIFA
     service.updateTeam(team)
-    aegypten = team
+    katar = team
 } else {
-    aegypten = aegypten.get()
+    katar = katar.get()
 }
-validate aegypten
+validate katar
 
-def argentinien = service.findTeam('Argentinien').get();
-validate argentinien
-def australien = service.findTeam('Australien').get();
-validate australien
-def belgien = service.findTeam('Belgien').get();
-validate belgien
+def ecuador = service.findTeam('Ecuador').get()
+println ecuador
 
-def brasilien = service.findTeam('Brasilien').get();
-validate brasilien
-def costaRica = service.findTeam('Costa Rica').get();
-validate costaRica
-def daenemark = service.findTeam('Dänemark').get();
-validate daenemark
-def uruguay = service.findTeam('Uruguay').get();
-validate uruguay
-
-def deutschland = service.findTeam('Deutschland').get();
-validate deutschland
-def england = service.findTeam('England').get();
-validate england
-def frankreich = service.findTeam('Frankreich').get();
-validate frankreich
-def iran = service.findTeam('Iran').get();
-validate iran
-
-def island = service.findTeam('Island').get();
-validate island
-def japan = service.findTeam('Japan').get();
-validate japan
-def kolumbien = service.findTeam('Kolumbien').get();
-validate kolumbien
-def kroatien = service.findTeam('Kroatien').get();
-validate kroatien
-
-def marokko = service.findTeam('Marokko')
-if (!marokko.present) {
-    def team = new Team()
-    team.name = 'Marokko'
-    team.longName = 'Marokko'
-    team.shortName = 'Marokko'
-    team.xshortName = 'MRK'
-    team.logo = 'marokko.gif'
-    team.teamType = TeamType.FIFA
-    service.updateTeam(team)
-    marokko = team
-} else {
-    marokko = marokko.get()
-}
-validate marokko
-
-def mexiko = service.findTeam('Mexiko').get();
-validate mexiko
-def nigeria = service.findTeam('Nigeria').get();
-validate nigeria
-
-def panama = service.findTeam 'Panama'
-if (!panama.present) {
-    def team = new Team()
-    team.name = 'Panama'
-    team.longName = 'Panama'
-    team.shortName = 'Panama'
-    team.xshortName = 'PAN'
-    team.logo = 'panama.gif'
-    team.teamType = TeamType.FIFA
-    service.updateTeam(team)
-    panama = team
-} else {
-    panama = panama.get()
-}
-validate panama
-
-def peru = service.findTeam 'Peru';
-if (!peru.present) {
-    def team = new Team()
-    team.name = 'Peru'
-    team.longName = 'Peru'
-    team.shortName = 'Peru'
-    team.xshortName = 'PRU'
-    team.logo = 'peru.gif'
-    team.teamType = TeamType.FIFA
-    service.updateTeam(team)
-    peru = team
-} else {
-    peru = peru.get()
-}
-validate peru
-
-def polen = service.findTeam('Polen').get();
-validate polen
-def portugal = service.findTeam('Portugal').get();
-validate portugal
-def russland = service.findTeam('Russland').get();
-validate russland
-
-def saudiArabien = service.findTeam('Saudi Arabien').get();
-validate saudiArabien
-def schweden = service.findTeam('Schweden').get();
-validate schweden
-def schweiz = service.findTeam('Schweiz').get();
-validate schweiz
 def senegal = service.findTeam('Senegal').get();
 validate senegal
 
-def serbien = service.findTeam('Serbien').get();
-validate serbien
-def spanien = service.findTeam('Spanien').get();
-validate spanien
-def suedkorea = service.findTeam('Rep.Korea').get();
-validate suedkorea
+def niederlande = service.findTeam('Niederlande').get();
+validate niederlande
+
+// Gruppe B
+
+def england = service.findTeam('England').get();
+validate england
+
+def iran = service.findTeam('Iran').get();
+validate iran
+
+def usa = service.findTeam('USA').get();
+validate usa
+
+def wales = service.findTeam('Wales').get();
+validate wales
+
+// --- Gruppe C
+
+def argentinien = service.findTeam('Argentinien').get();
+validate argentinien
+
+def saudiArabien = service.findTeam('Saudi Arabien').get();
+validate saudiArabien
+
+def mexiko = service.findTeam('Mexiko').get();
+validate mexiko
+
+def polen = service.findTeam('Polen').get();
+validate polen
+
+// Gruppe D
+
+def daenemark = service.findTeam('Dänemark').get();
+validate daenemark
+
 def tunesien = service.findTeam('Tunesien').get();
 validate tunesien
 
+def frankreich = service.findTeam('Frankreich').get();
+validate frankreich
 
-def wm2018_gruppe_A = service.addGroup wm2018, gruppeA
-println "Gruppe A: $wm2018_gruppe_A.id"
+def australien = service.findTeam('Australien').get();
+validate australien
 
-def wm2018_gruppe_B = service.addGroup wm2018, gruppeB
-println "Gruppe B: $wm2018_gruppe_B.id"
+// Gruppe E
 
-def wm2018_gruppe_C = service.addGroup wm2018, gruppeC
-println "Gruppe C: $wm2018_gruppe_C.id"
+def costaRica = service.findTeam('Costa Rica').get();
+validate costaRica
 
-def wm2018_gruppe_D = service.addGroup wm2018, gruppeD
-println "Gruppe D: $wm2018_gruppe_D.id"
+def deutschland = service.findTeam('Deutschland').get();
+validate deutschland
 
-def wm2018_gruppe_E = service.addGroup wm2018, gruppeE
-println "Gruppe E: $wm2018_gruppe_E.id"
+def spanien = service.findTeam('Spanien').get();
+validate spanien
 
-def wm2018_gruppe_F = service.addGroup wm2018, gruppeF
-println "Gruppe F: $wm2018_gruppe_F.id"
+def japan = service.findTeam('Japan').get();
+validate japan
 
-def wm2018_gruppe_G = service.addGroup wm2018, gruppeG
-println "Gruppe G: $wm2018_gruppe_G.id"
+// Gruppe F
 
-def wm2018_gruppe_H = service.addGroup wm2018, gruppeH
-println "Gruppe H: $wm2018_gruppe_H.id"
+def belgien = service.findTeam('Belgien').get();
+validate belgien
 
-wm2018 = service.findRoundGroupTeamUserRelations(wm2018)
+def kanada = service.findTeam('Kanada')
+if (!kanada.present) {
+    def team = new Team()
+    team.name = 'Kanada'
+    team.longName = 'Kanada'
+    team.shortName = 'Kanada'
+    team.xshortName = 'CAN'
+    team.logo = 'kanada.gif'
+    team.teamType = TeamType.FIFA
+    service.updateTeam(team)
+    kanada = team
+} else {
+    kanada = kanada.get()
+}
+validate kanada
 
-wm2018_gruppe_A = service.addTeams(wm2018, gruppeA, [russland, saudiArabien, uruguay, aegypten])
-printTeams(wm2018_gruppe_A)
+def marokko = service.findTeam('Marokko').get();
+validate marokko
 
-wm2018_gruppe_B = service.addTeams(wm2018, gruppeB, [marokko, iran, spanien, portugal]);
-printTeams(wm2018_gruppe_B)
+def kroatien = service.findTeam('Kroatien').get();
+validate kroatien
 
-wm2018_gruppe_C = service.addTeams(wm2018, gruppeC, [frankreich, peru, australien, daenemark])
-printTeams(wm2018_gruppe_C)
+// Gruppe G
 
-wm2018_gruppe_D = service.addTeams(wm2018, gruppeD, [argentinien, island, kroatien, nigeria])
-printTeams(wm2018_gruppe_D)
+def brasilien = service.findTeam('Brasilien').get();
+validate brasilien
 
-wm2018_gruppe_E = service.addTeams(wm2018, gruppeE, [costaRica, serbien, brasilien, schweiz])
-printTeams(wm2018_gruppe_E)
+def serbien = service.findTeam('Serbien').get();
+validate serbien
 
-wm2018_gruppe_F = service.addTeams(wm2018, gruppeF, [deutschland, mexiko, schweden, suedkorea])
-printTeams(wm2018_gruppe_F)
+def schweiz = service.findTeam('Schweiz').get();
+validate schweiz
 
-wm2018_gruppe_G = service.addTeams(wm2018, gruppeG, [belgien, panama, tunesien, england])
-printTeams(wm2018_gruppe_G)
+def kamerun = service.findTeam('Kamerun').get()
+validate kamerun
 
-wm2018_gruppe_H = service.addTeams(wm2018, gruppeH, [kolumbien, japan, polen, senegal])
-printTeams(wm2018_gruppe_H)
+// Gruppe H
+
+def portugal = service.findTeam('Portugal').get();
+validate portugal
+
+def ghana = service.findTeam('Ghana').get();
+validate ghana
+
+def uruguay = service.findTeam('Uruguay').get();
+validate uruguay
+
+def suedkorea = service.findTeam('Rep.Korea').get();
+validate suedkorea
+
+
+
+def wm2022_gruppe_A = service.addGroup wm2022, gruppeA
+println "Gruppe A: $wm2022_gruppe_A.id"
+
+def wm2022_gruppe_B = service.addGroup wm2022, gruppeB
+println "Gruppe B: $wm2022_gruppe_B.id"
+
+def wm2022_gruppe_C = service.addGroup wm2022, gruppeC
+println "Gruppe C: $wm2022_gruppe_C.id"
+
+def wm2022_gruppe_D = service.addGroup wm2022, gruppeD
+println "Gruppe D: $wm2022_gruppe_D.id"
+
+def wm2022_gruppe_E = service.addGroup wm2022, gruppeE
+println "Gruppe E: $wm2022_gruppe_E.id"
+
+def wm2022_gruppe_F = service.addGroup wm2022, gruppeF
+println "Gruppe F: $wm2022_gruppe_F.id"
+
+def wm2022_gruppe_G = service.addGroup wm2022, gruppeG
+println "Gruppe G: $wm2022_gruppe_G.id"
+
+def wm2022_gruppe_H = service.addGroup wm2022, gruppeH
+println "Gruppe H: $wm2022_gruppe_H.id"
+
+wm2022_gruppe_A = service.addTeams(wm2022, gruppeA, [katar, ecuador, senegal, niederlande])
+printTeams(wm2022_gruppe_A)
+
+wm2022_gruppe_B = service.addTeams(wm2022, gruppeB, [england, iran, usa, wales]);
+printTeams(wm2022_gruppe_B)
+
+wm2022_gruppe_C = service.addTeams(wm2022, gruppeC, [argentinien, saudiArabien, mexiko, polen])
+printTeams(wm2022_gruppe_C)
+
+wm2022_gruppe_D = service.addTeams(wm2022, gruppeD, [daenemark, tunesien, frankreich, australien])
+printTeams(wm2022_gruppe_D)
+
+wm2022_gruppe_E = service.addTeams(wm2022, gruppeE, [costaRica, deutschland, spanien, japan])
+printTeams(wm2022_gruppe_E)
+
+wm2022_gruppe_F = service.addTeams(wm2022, gruppeF, [belgien, kanada, marokko, kroatien])
+printTeams(wm2022_gruppe_F)
+
+wm2022_gruppe_G = service.addTeams(wm2022, gruppeG, [brasilien, serbien, schweiz, kamerun])
+printTeams(wm2022_gruppe_G)
+
+wm2022_gruppe_H = service.addTeams(wm2022, gruppeH, [portugal, ghana, uruguay, suedkorea])
+printTeams(wm2022_gruppe_H)
+
+/*
 
 def round_2018_06_14 = service.findRound(wm2018, 0)
 if (round_2018_06_14.isPresent()) {
@@ -537,3 +551,4 @@ service.addMatch(round_2018_06_28, '2018-06-28 16:00:00', wm2018_gruppe_H, seneg
 service.addMatch(round_2018_06_28, '2018-06-28 16:00:00', wm2018_gruppe_H, japan, polen)
 service.addMatch(round_2018_06_28, '2018-06-28 20:00:00', wm2018_gruppe_G, england, belgien)
 service.addMatch(round_2018_06_28, '2018-06-28 20:00:00', wm2018_gruppe_G, panama, tunesien)
+*/
