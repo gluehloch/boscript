@@ -364,16 +364,28 @@ printTeams(wm2022_gruppe_G)
 wm2022_gruppe_H = service.addTeams(wm2022, gruppeH, [portugal, ghana, uruguay, suedkorea])
 printTeams(wm2022_gruppe_H)
 
-/*
 
-def round_2018_06_14 = service.findRound(wm2018, 0)
-if (round_2018_06_14.isPresent()) {
-    round_2018_06_14 = round_2018_06_14.get()
+def round_2022_11_20 = service.findRound(wm2018, 0)
+if (round_2022_11_20.isPresent()) {
+    round_2022_11_20 = round_2022_11_20.get()
 } else {
-    round_2018_06_14 = service.addRound(wm2018, '2018-06-14 17:00:00', gruppeA)
+    round_2022_11_20 = service.addRound(wm2018, '2022-11-20 17:00:00', gruppeA)
 }
-println "Runde $round_2018_06_14.dateTime"
+println "Runde $round_2022_11_20.dateTime"
 
+service.addMatch(round_2022_11_20, '2022-11-20 17:00:00', wm2022_gruppe_A, katar, ecuador)
+
+service.addMatch(round_2022_11_20, '2022-11-21 14:00:00', wm2022_gruppe_B, england, iran)
+service.addMatch(round_2022_11_20, '2022-11-21 17:00:00', wm2022_gruppe_A, senegal, niederlande)
+service.addMatch(round_2022_11_20, '2022-11-21 20:00:00', wm2022_gruppe_B, usa, wales)
+
+service.addMatch(round_2022_11_20, '2022-11-22 11:00:00', wm2022_gruppe_C, argentinien, saudiArabien)
+service.addMatch(round_2022_11_20, '2022-11-22 14:00:00', wm2022_gruppe_D, daenemark, tunesien)
+service.addMatch(round_2022_11_20, '2022-11-22 17:00:00', wm2018_gruppe_C, mexiko, polen)
+service.addMatch(round_2022_11_20, '2022-11-22 20:00:00', wm2022_gruppe_C, frankreich, australien)
+
+
+/*
 def round_2018_06_15 = service.findRound(wm2018, 1)
 if (round_2018_06_15.isPresent()) {
     round_2018_06_15 = round_2018_06_15.get()
