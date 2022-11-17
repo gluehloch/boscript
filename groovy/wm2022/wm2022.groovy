@@ -382,8 +382,12 @@ service.addMatch(round_2022_11_20, '2022-11-21 20:00:00', wm2022_gruppe_B, usa, 
 service.addMatch(round_2022_11_20, '2022-11-22 11:00:00', wm2022_gruppe_C, argentinien, saudiArabien)
 service.addMatch(round_2022_11_20, '2022-11-22 14:00:00', wm2022_gruppe_D, daenemark, tunesien)
 service.addMatch(round_2022_11_20, '2022-11-22 17:00:00', wm2018_gruppe_C, mexiko, polen)
-service.addMatch(round_2022_11_20, '2022-11-22 20:00:00', wm2022_gruppe_C, frankreich, australien)
+service.addMatch(round_2022_11_20, '2022-11-22 20:00:00', wm2022_gruppe_D, frankreich, australien)
 
+service.addMatch(round_2022_11_20, '2022-11-23 11:00:00', wm2022_gruppe_F, marokko, kroatien)
+service.addMatch(round_2022_11_20, '2022-11-23 14:00:00', wm2022_gruppe_E, deutschland, japan)
+service.addMatch(round_2022_11_20, '2022-11-23 17:00:00', wm2022_gruppe_E, spanien, costaRica)
+service.addMatch(round_2022_11_20, '2022-11-23 20:00:00', wm2022_gruppe_F, belgien, kanada)
 
 /*
 def round_2018_06_15 = service.findRound(wm2018, 1)
