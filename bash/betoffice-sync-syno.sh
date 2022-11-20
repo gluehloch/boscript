@@ -1,4 +1,4 @@
-###!/bin/bash
+#!/bin/bash
 
 BACKUP_DIR=/var/services/homes/winkler/betoffice/vserver
 MYSQL_CLIENT=/usr/syno/mysql/bin/mysql
