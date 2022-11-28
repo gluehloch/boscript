@@ -313,8 +313,8 @@ service.addMatch(round_2022_11_25, '2022-11-26 20:00:00', wm2022_gruppe_C, argen
 
 service.addMatch(round_2022_11_25, '2022-11-27 11:00:00', wm2022_gruppe_E, japan, costaRica)
 service.addMatch(round_2022_11_25, '2022-11-27 14:00:00', wm2022_gruppe_F, belgien, marokko)
-service.addMatch(round_2022_11_25, '2022-11-27 17:00:00', wm2022_gruppe_E, kroatien, kanada)
-service.addMatch(round_2022_11_25, '2022-11-27 20:00:00', wm2022_gruppe_F, spanien, deutschland)
+service.addMatch(round_2022_11_25, '2022-11-27 17:00:00', wm2022_gruppe_F, kroatien, kanada)
+service.addMatch(round_2022_11_25, '2022-11-27 20:00:00', wm2022_gruppe_E, spanien, deutschland)
 
 service.addMatch(round_2022_11_25, '2022-11-28 11:00:00', wm2022_gruppe_G, kamerun, serbien)
 service.addMatch(round_2022_11_25, '2022-11-28 14:00:00', wm2022_gruppe_H, suedkorea, ghana)
