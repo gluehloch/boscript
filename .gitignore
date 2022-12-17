@@ -1,6 +1,9 @@
 # Script environment properties
 hibernate.properties
 
+# Visual Code
+/.vscode
+
 # Build artefacts
 *.tar
 *.zip
