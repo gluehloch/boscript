@@ -292,7 +292,9 @@ def wm2022_gruppe_E = service.findGroup(wm2022, gruppeE);
 def wm2022_gruppe_F = service.findGroup(wm2022, gruppeF);
 def wm2022_gruppe_G = service.findGroup(wm2022, gruppeG);
 def wm2022_gruppe_H = service.findGroup(wm2022, gruppeH);
-def wm2022_achtelfinale = service.findGroup(wm2022, achtelfinale);
+
+def wm2022_achtelfinale = service.addGroup wm2022, achtelfinale
+println "Gruppe A: $wm2022_achtelfinale.id"
 
 def round_2022_12_03 = service.findRound(wm2022, 3)
 if (round_2022_12_03.isPresent()) {
@@ -301,6 +303,13 @@ if (round_2022_12_03.isPresent()) {
     round_2022_12_03 = service.addRound(wm2022, '2022-12-03 16:00:00', achtelfinale)
 }
 println "Runde $round_2022_12_03.dateTime"
+
+wm2022_achtelfinale = service.addTeams(wm2022, achtelfinale, [
+    niederlande, usa, argentinien, australien,
+    frankreich, polen, england, senegal,
+    japan, kroatien, brasilien, suedkorea,
+    marokko, spanien, portugal, schweiz])
+printTeams(wm2022_achtelfinale)
 
 service.addMatch(round_2022_12_03, '2022-12-03 16:00:00', wm2022_achtelfinale, niederlande, usa)
 service.addMatch(round_2022_12_03, '2022-12-03 20:00:00', wm2022_achtelfinale, argentinien, australien)
