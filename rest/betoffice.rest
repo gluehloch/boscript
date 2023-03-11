@@ -71,6 +71,13 @@ GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ranking/roundonly/917
 
 ### OpenLigaDb
 https://www.openligadb.de/api/getmatchdata/bl1/2021/1
+
+### betoffice openligadb Testdaten
+https://www.openligadb.de/api/getmatchdata/bl1/2020/3
+
+### betoffice openligadb Testdaten
+https://www.openligadb.de/api/getmatchdata/bl1/2022/1
+
 ###
 https://www.openligadb.de/api/getmatchdata/bl1
 ###
