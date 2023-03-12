@@ -26,11 +26,14 @@ https://tippdiekistebier.de/betoffice-jweb/
 
 GET http://localhost:8080/betoffice-jweb/bo/community-admin/communities
 
+###
 
+GET http://localhost:8080/betoffice-jweb/bo/community-admin/communities/?pageParam={"page":1,"size":4}=
+
+### 
 GET http://localhost:8080/betoffice-jweb/bo/community-admin/communities?page=1&size=20&sort=name,asc&sort=shortName,desc
 Content-Type: application/json
 betofficeToken: test
-
 
 ### Login
 
