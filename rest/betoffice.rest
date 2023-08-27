@@ -88,3 +88,13 @@ https://www.openligadb.de/api/getmatchdata/uefa-em-2020/2020/1
 ###
 https://www.openligadb.de/api/getmatchdata/bl1
 ###
+
+### Registration Service
+
+GET http://127.0.0.1:8080/registrationservice/ping HTTP/1.1
+content-type: application/json
+
+GET http://127.0.0.1:8080/registrationservice/version HTTP/1.1
+content-type: application/json
+
+###
