@@ -95,6 +95,17 @@ https://www.openligadb.de/api/getmatchdata/bl1
 
 ### Registration Service
 
+http://localhost:9090/registrationservice/version
+###
+
+http://localhost:9090/registrationservice/ping
+###
+
+http://localhost:9090/registrationservice/database
+###
+
+### Registration Service
+
 GET http://127.0.0.1:8080/registrationservice/ping HTTP/1.1
 content-type: application/json
 
