@@ -39,9 +39,23 @@ GET http://localhost:8080/betoffice-jweb/bo/community-admin/communities?page=1&s
 Content-Type: application/json
 betofficeToken: test
 
-### Login
+### Login Ping
 
-POST http://localhost:8080/betoffice-jweb/bo/office/login
+GET http://localhost:8080/betoffice-jweb/bo/authentication/ping
+
+### Login localhost:8080
+
+POST http://localhost:8080/betoffice-jweb/bo/authentication/login
+Content-Type: application/json
+
+{
+    "nickname": "Frosch",
+    "password": "awi"
+}
+
+### Login localhost:9999 / Nginx Proxy Server
+
+POST http://localhost:9999/betoffice-jweb/bo/authentication/login
 Content-Type: application/json
 
 {
