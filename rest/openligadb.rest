@@ -9,10 +9,11 @@
 #
 
 ### Gruppen entsprechen in betoffice einem Spieltag / Vorrunde Spieltag 1. / Vorrunde Spieltag 2. / ... / Achtelfinale
+### Bundesliga: groupID = xxxxx, groupOrderID = 1, groupName = '1. Spieltag'
 https://api.openligadb.de/getavailablegroups/wmk/2022
 
 ### OpenLigaDb
-https://www.openligadb.de/api/getmatchdata/bl1/2021/1
+https://www.openligadb.de/api/getmatchdata/bl1/2023/1
 
 ### betoffice openligadb Testdaten
 https://www.openligadb.de/api/getmatchdata/bl1/2020/3
