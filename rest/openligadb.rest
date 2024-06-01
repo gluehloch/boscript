@@ -33,3 +33,7 @@ https://www.openligadb.de/api/getmatchdata/uefa-em-2020/2020/1
 ###
 https://www.openligadb.de/api/getmatchdata/bl1
 ###
+
+###
+https://api.openligadb.de/getmatchdata/em/2024
+###
