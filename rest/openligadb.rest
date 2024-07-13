@@ -29,6 +29,10 @@ https://www.openligadb.de/api/getmatchdata/bl1/2022/1
 ### betoffice openligadb Testdaten
 https://www.openligadb.de/api/getmatchdata/uefa-em-2020/2020/1
 
+###
+### 60595
+https://www.openligadb.de/api/getavailablegroups/em/2024
+###
 
 ###
 https://www.openligadb.de/api/getmatchdata/bl1

@@ -1,6 +1,16 @@
 ###
 
-GET http://localhost:8080/betoffice-jweb/bo/office/ranking/roundonly/917
+# As Spring-Boot application
+
+# GET http://localhost:8080/bo/office/ranking/roundonly/917
+GET http://localhost:7878/bo/office/ranking/roundonly/917
+
+###
+
+# As Tomcat war application
+
+# GET http://localhost:8080/betoffice-jweb/bo/office/ranking/roundonly/917
+GET http://localhost:8080/betoffice-jweb/office/ranking/roundonly/917
 
 ###
 
@@ -78,6 +88,10 @@ Authorization: Bearer E6AE13D88A936DB419DEAFFED8A08A98
 
 GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ping
 
+### TDKB SNAPSHOT Version
+
+GET https://tippdiekistebier.de:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
+
 ###
 
 GET http://tippdiekistebier.de:8080/betoffice-jweb/bo/office/ping
@@ -90,6 +104,9 @@ GET http://tippdiekistebier.de:8080/betoffice-jweb/bo/office/ranking/roundonly/9
 
 GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ranking/roundonly/917
 
+###
+
+GET http://localhost:9999/betoffice-jweb/bo/office/game/7921
 
 ### Registration Service
 
