@@ -25,6 +25,19 @@ Authorization: Bearer TestAuthorization
 http://127.0.0.1:8080/betoffice-jweb/bo/office/ranking/season/25
 ###
 http://localhost:8080/betoffice-jweb/bo/office/ranking/season/33
+
+###
+
+http://localhost:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ranking/season/33
+
+###
+
+http://localhost:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
+
+###
+
+http://tippdiekistebier.de:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
+
 ###
 http://localhost:8080/betoffice-jweb/bo/office/season/33
 ###
@@ -99,6 +112,10 @@ GET http://tippdiekistebier.de:8080/betoffice-jweb/bo/office/ping
 ###
 
 GET http://tippdiekistebier.de:8080/betoffice-jweb/bo/office/ranking/roundonly/917
+
+###
+
+GET http://tippdiekistebier.de:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ranking/roundonly/917
 
 ###
 

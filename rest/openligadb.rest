@@ -37,3 +37,7 @@ https://www.openligadb.de/api/getavailablegroups/em/2024
 ###
 https://www.openligadb.de/api/getmatchdata/bl1
 ###
+
+###
+https://api.openligadb.de/getmatchdata/em/2024
+###
