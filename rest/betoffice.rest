@@ -1,6 +1,16 @@
 ###
 
-GET http://localhost:8080/betoffice-jweb/bo/office/ranking/roundonly/917
+# As Spring-Boot application
+
+# GET http://localhost:8080/bo/office/ranking/roundonly/917
+GET http://localhost:7878/bo/office/ranking/roundonly/917
+
+###
+
+# As Tomcat war application
+
+# GET http://localhost:8080/betoffice-jweb/bo/office/ranking/roundonly/917
+GET http://localhost:8080/betoffice-jweb/office/ranking/roundonly/917
 
 ###
 
@@ -16,6 +26,19 @@ Authorization: Bearer TestAuthorization
 http://127.0.0.1:8080/betoffice-jweb/bo/office/ranking/season/25
 ###
 http://localhost:8080/betoffice-jweb/bo/office/ranking/season/33
+
+###
+
+http://localhost:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ranking/season/33
+
+###
+
+http://localhost:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
+
+###
+
+http://tippdiekistebier.de:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
+
 ###
 http://localhost:8080/betoffice-jweb/bo/office/season/33
 ###
@@ -49,9 +72,23 @@ GET http://localhost:8080/betoffice-jweb/bo/community-admin/communities?page=1&s
 Content-Type: application/json
 betofficeToken: test
 
-### Login
+### Login Ping
 
-POST http://localhost:8080/betoffice-jweb/bo/office/login
+GET http://localhost:8080/betoffice-jweb/bo/authentication/ping
+
+### Login localhost:8080
+
+POST http://localhost:8080/betoffice-jweb/bo/authentication/login
+Content-Type: application/json
+
+{
+    "nickname": "Frosch",
+    "password": "awi"
+}
+
+### Login localhost:9999 / Nginx Proxy Server
+
+POST http://localhost:9999/betoffice-jweb/bo/authentication/login
 Content-Type: application/json
 
 {
@@ -74,6 +111,10 @@ Authorization: Bearer E6AE13D88A936DB419DEAFFED8A08A98
 
 GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ping
 
+### TDKB SNAPSHOT Version
+
+GET https://tippdiekistebier.de:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
+
 ###
 
 GET http://tippdiekistebier.de:8080/betoffice-jweb/bo/office/ping
@@ -84,23 +125,25 @@ GET http://tippdiekistebier.de:8080/betoffice-jweb/bo/office/ranking/roundonly/9
 
 ###
 
-GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ranking/roundonly/917
-
-### OpenLigaDb
-https://www.openligadb.de/api/getmatchdata/bl1/2021/1
-
-### betoffice openligadb Testdaten
-https://www.openligadb.de/api/getmatchdata/bl1/2020/3
-
-### betoffice openligadb Testdaten
-https://www.openligadb.de/api/getmatchdata/bl1/2022/1
-
-### betoffice openligadb Testdaten
-https://www.openligadb.de/api/getmatchdata/uefa-em-2020/2020/1
-
+GET http://tippdiekistebier.de:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ranking/roundonly/917
 
 ###
-https://www.openligadb.de/api/getmatchdata/bl1
+
+GET https://tippdiekistebier.de/betoffice-jweb/bo/office/ranking/roundonly/917
+
+###
+
+GET http://localhost:9999/betoffice-jweb/bo/office/game/7921
+
+### Registration Service
+
+http://localhost:9090/registrationservice/version
+###
+
+http://localhost:9090/registrationservice/ping
+###
+
+http://localhost:9090/registrationservice/database
 ###
 
 ### Registration Service

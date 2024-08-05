@@ -1,0 +1,43 @@
+#
+# {
+#    "leagueId": 4537,
+#    "leagueName": "Fußball-WM 2022 (Katar)",
+#    "leagueShortcut": "wmk",
+#    "leagueSeason": "2022",
+#    "sport": null
+#  },
+#
+
+### Gruppen entsprechen in betoffice einem Spieltag / Vorrunde Spieltag 1. / Vorrunde Spieltag 2. / ... / Achtelfinale
+### Weltmeisterschaft 2022: groupID = xxxxx, groupOrderID = 1, groupName = '1. Spieltag'
+### Bundesliga: groupID = xxxxx, groupOrderID = 1, groupName = '1. Spieltag'
+
+https://api.openligadb.de/getavailablegroups/wmk/2022
+
+###
+https://www.openligadb.de/api/getmatchdata/wmk/2022/1
+
+### OpenLigaDb
+https://www.openligadb.de/api/getmatchdata/bl1/2023/1
+
+### betoffice openligadb Testdaten
+https://www.openligadb.de/api/getmatchdata/bl1/2020/3
+
+### betoffice openligadb Testdaten
+https://www.openligadb.de/api/getmatchdata/bl1/2022/1
+
+### betoffice openligadb Testdaten
+https://www.openligadb.de/api/getmatchdata/uefa-em-2020/2020/1
+
+###
+### 60595
+https://www.openligadb.de/api/getavailablegroups/em/2024
+###
+
+###
+https://www.openligadb.de/api/getmatchdata/bl1
+###
+
+###
+https://api.openligadb.de/getmatchdata/em/2024
+###
