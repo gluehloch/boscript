@@ -5,8 +5,18 @@ GET http://localhost:7878/bo/office/ranking/roundonly/917
 
 ###
 
+POST http://localhost:7878/bo/authentication/login
+Content-Type: application/json
+
+{
+    "nickname": "Frosch",
+    "password": "awi"
+}
+
+###
+
 GET http://localhost:7878/bo/office/profile/Frosch
 Content-Type: application/json
-betofficeToken: FDB63B1952AB5ED6F1E20017AF72EF11
+betofficeToken: 61219F6D3E1F3EF94364AE0BCB498891
 betofficeNickname: Frosch
-Authorization: Bearer FDB63B1952AB5ED6F1E20017AF72EF11
+Authorization: Bearer 61219F6D3E1F3EF94364AE0BCB498891

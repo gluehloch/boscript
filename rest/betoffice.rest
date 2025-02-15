@@ -21,6 +21,7 @@ GET http://localhost:8080/betoffice-jweb/bo/office/ranking/season/31
 GET http://localhost:8080/betoffice-jweb/bo/office/ping
 Authorization: Bearer TestAuthorization
 
+
 ###
 http://127.0.0.1:8080/betoffice-jweb/bo/office/ranking/season/25
 ###
@@ -42,6 +43,15 @@ http://tippdiekistebier.de:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
 http://localhost:8080/betoffice-jweb/bo/office/season/33
 ###
 http://localhost:8080/betoffice-jweb/bo/office/season/33/round/
+###
+http://127.0.0.1:8080/betoffice-jweb/bo/office/season/roundtable/695/group/62
+###
+https://tippdiekistebier.de/betoffice-jweb/
+
+###
+http://127.0.0.1:8080/betoffice-jweb/bo/office/ranking/season/25
+###
+http://localhost:8080/betoffice-jweb/bo/office/ranking/season/30
 ###
 http://127.0.0.1:8080/betoffice-jweb/bo/office/season/roundtable/695/group/62
 ###
@@ -141,17 +151,12 @@ http://localhost:9090/registrationservice/database
 GET http://127.0.0.1:8080/registrationservice/ping HTTP/1.1
 content-type: application/json
 
+###
+
 GET http://127.0.0.1:8080/registrationservice/version HTTP/1.1
 content-type: application/json
 
 ###
-GET http://localhost:9999/betoffice-boot/office/profile/Frosch
 
-###
-GET http://localhost:7878/bo/office/ranking/roundonly/917
-
-###
-GET http://localhost:9999/betoffice-boot/office/profile/Frosch
-Content-Type: application/json
-betofficeToken: FDB63B1952AB5ED6F1E20017AF72EF11
-betofficeNickname: Frosch
+GET http://127.0.0.1:8080/registrationservice/database HTTP/1.1
+content-type: application/json
