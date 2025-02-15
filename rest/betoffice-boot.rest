@@ -1,0 +1,12 @@
+### Send request to the local Bootstrap server of betoffice.
+
+###
+GET http://localhost:7878/bo/office/ranking/roundonly/917
+
+###
+
+GET http://localhost:7878/bo/office/profile/Frosch
+Content-Type: application/json
+betofficeToken: FDB63B1952AB5ED6F1E20017AF72EF11
+betofficeNickname: Frosch
+Authorization: Bearer FDB63B1952AB5ED6F1E20017AF72EF11

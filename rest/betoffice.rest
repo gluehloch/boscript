@@ -145,3 +145,13 @@ GET http://127.0.0.1:8080/registrationservice/version HTTP/1.1
 content-type: application/json
 
 ###
+GET http://localhost:9999/betoffice-boot/office/profile/Frosch
+
+###
+GET http://localhost:7878/bo/office/ranking/roundonly/917
+
+###
+GET http://localhost:9999/betoffice-boot/office/profile/Frosch
+Content-Type: application/json
+betofficeToken: FDB63B1952AB5ED6F1E20017AF72EF11
+betofficeNickname: Frosch

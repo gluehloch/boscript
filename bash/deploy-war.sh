@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Use this shell script in conjunction with the copy-war.sh script!
+#
+# The local path to the betoffice-war directory. 
 _BETOFFICE_HOME="/c/development/projects/betoffice/web/bo-rest/betoffice-war"
 _CURRENTTIME=`date '+%Y-%m-%d-%H%M%S'`
 _NEW_WAR_FILE="betoffice-war-1.5.1-SNAPSHOT.war"
