@@ -1,0 +1,25 @@
+# Betoffice as Spring Boot app
+
+###
+
+GET http://localhost:9999/betoffice-boot/office/ping
+
+### with nginx as proxy
+POST http://localhost:9999/betoffice-boot/authentication/google/login-url
+
+###
+
+GET http://localhost:7878/bo/authentication/google/login-url
+
+### 
+GET http://localhost:9999/betoffice-boot/authentication/google/login-url
+
+###
+
+###
+
+GET http://localhost:9999/betoffice-boot/login/oauth2/code/google
+
+###
+
+GET http://localhost:9999/betoffice-boot/oauth2/authorization/google
