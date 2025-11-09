@@ -17,6 +17,6 @@ Content-Type: application/json
 
 GET http://localhost:7878/bo/office/profile/Frosch
 Content-Type: application/json
-betofficeToken: 61219F6D3E1F3EF94364AE0BCB498891
+betofficeToken: CDD39803AD1AF5B51BA903DAA0FE886F
 betofficeNickname: Frosch
-Authorization: Bearer 61219F6D3E1F3EF94364AE0BCB498891
+Authorization: Bearer CDD39803AD1AF5B51BA903DAA0FE886F
