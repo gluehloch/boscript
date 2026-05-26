@@ -24,6 +24,11 @@ GET http://localhost:8080/betoffice-jweb/bo/office/ranking/season/31
 GET http://localhost:8080/betoffice-jweb/bo/office/ping
 Authorization: Bearer TestAuthorization
 
+### 
+GET https//localhost:8080/betoffice-war/office/ping
+
+###
+GET http://127.0.0.1:8080/betoffice-war/office/ranking/season/25
 
 ###
 http://127.0.0.1:8080/betoffice-jweb/bo/office/ranking/season/25
@@ -36,7 +41,7 @@ http://localhost:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ranking/season/33
 
 ###
 
-http://localhost:8080/betoffice-jweb-1.5.0-SNAPSHOT/bo/office/ping
+http://localhost:8080/betoffice-jweb-1.5.1-SNAPSHOT/bo/office/ping
 
 ###
 
