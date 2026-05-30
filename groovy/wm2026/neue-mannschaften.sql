@@ -35,3 +35,7 @@ insert into bo_team(bo_name,   bo_longname, bo_logo, bo_teamtype, bo_location_re
 -- Usbekistan
 insert into bo_team(bo_name,   bo_longname, bo_logo, bo_teamtype, bo_location_ref, bo_openligaid, bo_shortname, bo_xshortname)
              values('Usbekistan', 'Usbekistan',   null,    1, null,        4910,          'UZB',        'UZB');
+
+-- Team Alias
+INSERT INTO betoffice.bo_teamalias (bo_aliasname, bo_team_ref) VALUES('Südkorea', 39);
+INSERT INTO betoffice.bo_teamalias (bo_aliasname, bo_team_ref) VALUES('Bosnien und Herzegowina', 1183);
