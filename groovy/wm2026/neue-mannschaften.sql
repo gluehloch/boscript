@@ -54,5 +54,5 @@ insert into bo_community_user(bo_community_ref, bo_user_ref)
 select 39, bo_user_ref from bo_community_user cu where cu.bo_community_ref = 38;
 
 select * from bo_user;
-delete from bo_community_user cu where cu. bo_user_ref = 17290 and bo_community_ref = 39;
+delete from bo_community_user where bo_user_ref = 17290 and bo_community_ref = 39;
 insert into bo_community_user(bo_community_ref, bo_user_ref) values (39, 22);
