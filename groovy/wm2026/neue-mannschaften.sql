@@ -39,3 +39,9 @@ insert into bo_team(bo_name,   bo_longname, bo_logo, bo_teamtype, bo_location_re
 -- Team Alias
 INSERT INTO betoffice.bo_teamalias (bo_aliasname, bo_team_ref) VALUES('Südkorea', 39);
 INSERT INTO betoffice.bo_teamalias (bo_aliasname, bo_team_ref) VALUES('Bosnien und Herzegowina', 1183);
+
+-- Community
+INSERT INTO betoffice.bo_community(bo_shortname, bo_name, bo_year, bo_user_ref, bo_season_ref)
+VALUES('TDKB 2026', 'WM Nordamerika', '2026', 6, 39);
+
+
