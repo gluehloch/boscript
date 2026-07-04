@@ -25,7 +25,7 @@ insert into bo_team(bo_name,   bo_longname, bo_logo, bo_teamtype, bo_location_re
 -- Gruppe J
 -- Jordanien
 insert into bo_team(bo_name,   bo_longname, bo_logo, bo_teamtype, bo_location_ref, bo_openligaid, bo_shortname, bo_xshortname)
-             values('Norwegen', 'Norwegen',   null,    1, null,        4915,          'JOR',        'JOR');
+             values('Jordanien', 'Jordanien',   null,    1, null,        4915,          'JOR',        'JOR');
 
 -- Gruppe K
 -- DR Kongo
