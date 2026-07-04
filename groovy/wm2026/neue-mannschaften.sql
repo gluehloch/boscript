@@ -69,3 +69,12 @@ select * from bo_team;
 update bo_game g set bo_guestteam_ref = 1168 where g.id = 8756 ;
 update bo_game g set bo_guestteam_ref = 1172 where g.id = 8758 ;
 
+-- 2026-07-04 Datenbank Update
+
+-- Datenbereinigung / Bundesliga 2011/2012 / Ein Spieltag zuviel am 2012-05-11 (35. Spieltag ohne Spiele nach Saisonende am 05.05.2012)
+delete from bo_gamelist gl where gl.id = 500;
+
+-- Achtelfinale
+insert into bo_gamelist(id, bo_index, bo_season_ref, bo_group_ref, bo_datetime, bo_openligaid)
+values(1112, 4, 39, 169, now(), null);
+
