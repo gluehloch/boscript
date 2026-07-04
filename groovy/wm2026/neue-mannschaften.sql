@@ -57,6 +57,15 @@ select * from bo_user;
 delete from bo_community_user where bo_user_ref = 17290 and bo_community_ref = 39;
 insert into bo_community_user(bo_community_ref, bo_user_ref) values (39, 22);
 
+-- Sechzehntelfinal
+select * from bo_gamelist where bo_season_ref = 39;
+insert into bo_gamelist(id, bo_index, bo_season_ref, bo_group_ref, bo_datetime, bo_openligaid)
+values(1111, 3, 39, 168, now(), null);
+
+select count(*) from bo_team_group where bo_group_ref = 168;
+select * from bo_team;
+
 -- Sechzehntelfinal / Bereinigung
 update bo_game g set bo_guestteam_ref = 1168 where g.id = 8756 ;
 update bo_game g set bo_guestteam_ref = 1172 where g.id = 8758 ;
+
