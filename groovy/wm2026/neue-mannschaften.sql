@@ -78,3 +78,7 @@ delete from bo_gamelist gl where gl.id = 500;
 insert into bo_gamelist(id, bo_index, bo_season_ref, bo_group_ref, bo_datetime, bo_openligaid)
 values(1112, 4, 39, 169, now(), null);
 
+
+-- Viertelfinale
+insert into bo_gamelist(id, bo_index, bo_season_ref, bo_group_ref, bo_datetime, bo_openligaid)
+values(1113, 5, 39, 170, '2026-07-09 00:00:00.000', null);
